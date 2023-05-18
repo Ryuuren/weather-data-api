@@ -1,0 +1,1166 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Weather Data API",
+    "description": "JSON REST API for analysis of weather data"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "basePath": "",
+  "paths": {
+    "/docs": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {}
+      }
+    },
+    "/readings": {
+      "post": {
+        "tags": [
+          "Readings - POST"
+        ],
+        "summary": "Create a specific reading",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Add a new reading",
+          "content": {
+            "application/json": {
+              "schema": {
+                "Device Name": "string",
+                "Precipitation mm/h": "number",
+                "Latitude": "number",
+                "Longitude": "number",
+                "Temperature (°C)": "number",
+                "Atmospheric Pressure (kPa)": "number",
+                "Max Wind Speed (m/s/)": "number",
+                "Solar Radiation (W/m2/)": "number",
+                "Vapor Pressure (kPa)": "number",
+                "Humidity (%)": "number",
+                "Wind Direction (°)": "number"
+              },
+              "example": {
+                "Device Name": "Mitchell Sensor 1",
+                "Precipitation mm/h": 115,
+                "Latitude": -27.47,
+                "Longitude": 153.01,
+                "Temperature (°C)": 32,
+                "Atmospheric Pressure (kPa)": 95,
+                "Max Wind Speed (m/s/)": 75,
+                "Solar Radiation (W/m2/)": 1351,
+                "Vapor Pressure (kPa)": 2.9,
+                "Humidity (%)": 58,
+                "Wind Direction (°)": 244
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Readings - GET"
+        ],
+        "summary": "Get a collection of all readings",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Readings - PATCH"
+        ],
+        "summary": "Update part of a reading by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Update part of a reading by ID",
+          "content": {
+            "application/json": {
+              "schema": {
+                "Device Name": "string",
+                "id": "string",
+                "Precipitation mm/h": "number",
+                "Latitude": "number",
+                "Longitude": "number",
+                "Temperature (°C)": "number",
+                "Atmospheric Pressure (kPa)": "number",
+                "Max Wind Speed (m/s/)": "number",
+                "Solar Radiation (W/m2/)": "number",
+                "Vapor Pressure (kPa)": "number",
+                "Humidity (%)": "number",
+                "Wind Direction (°)": "number"
+              },
+              "example": {
+                "Device Name": "Mitchell Sensor 5",
+                "id": "641ba871d563a9cad71ae86a",
+                "Precipitation mm/h": 125,
+                "Latitude": -22.47,
+                "Longitude": 151.01,
+                "Temperature (°C)": 33,
+                "Atmospheric Pressure (kPa)": 94,
+                "Max Wind Speed (m/s/)": 115,
+                "Solar Radiation (W/m2/)": 1154,
+                "Vapor Pressure (kPa)": 2.8,
+                "Humidity (%)": 28,
+                "Wind Direction (°)": 114
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Readings - PUT"
+        ],
+        "summary": "Update an entire reading by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Update an entire reading by ID",
+          "content": {
+            "application/json": {
+              "schema": {
+                "Device Name": "string",
+                "id": "string",
+                "Precipitation mm/h": "number",
+                "Latitude": "number",
+                "Longitude": "number",
+                "Temperature (°C)": "number",
+                "Atmospheric Pressure (kPa)": "number",
+                "Max Wind Speed (m/s/)": "number",
+                "Solar Radiation (W/m2/)": "number",
+                "Vapor Pressure (kPa)": "number",
+                "Humidity (%)": "number",
+                "Wind Direction (°)": "number"
+              },
+              "example": {
+                "Device Name": "Mitchell Sensor 6",
+                "id": "641ba871d563a9cad71ae86a",
+                "Precipitation mm/h": 125,
+                "Latitude": -22.47,
+                "Longitude": 151.01,
+                "Temperature (°C)": 33,
+                "Atmospheric Pressure (kPa)": 94,
+                "Max Wind Speed (m/s/)": 115,
+                "Solar Radiation (W/m2/)": 1154,
+                "Vapor Pressure (kPa)": 2.8,
+                "Humidity (%)": 28,
+                "Wind Direction (°)": 114
+              }
+            }
+          }
+        }
+      }
+    },
+    "/readings/many": {
+      "post": {
+        "tags": [
+          "Readings - POST"
+        ],
+        "summary": "Create many readings",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Add new readings from array",
+          "content": {
+            "application/json": {
+              "schema": {
+                "readings": "array"
+              },
+              "example": {
+                "readings": [
+                  {
+                    "Device Name": "South Bank Sensor",
+                    "Precipitation mm/h": 105,
+                    "Latitude": -47.47,
+                    "Longitude": 129.15,
+                    "Temperature (°C)": 12,
+                    "Atmospheric Pressure (kPa)": 98,
+                    "Max Wind Speed (m/s/)": 71,
+                    "Solar Radiation (W/m2/)": 978,
+                    "Vapor Pressure (kPa)": 2.4,
+                    "Humidity (%)": 12,
+                    "Wind Direction (°)": 65
+                  },
+                  {
+                    "Device Name": "North Lakes Sensor",
+                    "Precipitation mm/h": 45,
+                    "Latitude": -36.37,
+                    "Longitude": 123.02,
+                    "Temperature (°C)": 35,
+                    "Atmospheric Pressure (kPa)": 98,
+                    "Max Wind Speed (m/s/)": 125,
+                    "Solar Radiation (W/m2/)": 1144,
+                    "Vapor Pressure (kPa)": 2.8,
+                    "Humidity (%)": 68,
+                    "Wind Direction (°)": 172
+                  },
+                  {
+                    "Device Name": "Narangba Sensor",
+                    "Precipitation mm/h": 127,
+                    "Latitude": -12.47,
+                    "Longitude": 143.2,
+                    "Temperature (°C)": 29,
+                    "Atmospheric Pressure (kPa)": 99,
+                    "Max Wind Speed (m/s/)": 54,
+                    "Solar Radiation (W/m2/)": 1151,
+                    "Vapor Pressure (kPa)": 2.9,
+                    "Humidity (%)": 85,
+                    "Wind Direction (°)": 325
+                  },
+                  {
+                    "Device Name": "Burpengary Sensor",
+                    "Precipitation mm/h": 75,
+                    "Latitude": -71.22,
+                    "Longitude": 163.34,
+                    "Temperature (°C)": 31,
+                    "Atmospheric Pressure (kPa)": 98,
+                    "Max Wind Speed (m/s/)": 49,
+                    "Solar Radiation (W/m2/)": 1314,
+                    "Vapor Pressure (kPa)": 2.7,
+                    "Humidity (%)": 38,
+                    "Wind Direction (°)": 98
+                  },
+                  {
+                    "Device Name": "Dakabin Sensor",
+                    "Precipitation mm/h": 73,
+                    "Latitude": -16.37,
+                    "Longitude": 43.02,
+                    "Temperature (°C)": 36,
+                    "Atmospheric Pressure (kPa)": 97,
+                    "Max Wind Speed (m/s/)": 15,
+                    "Solar Radiation (W/m2/)": 1222,
+                    "Vapor Pressure (kPa)": 2.7,
+                    "Humidity (%)": 88,
+                    "Wind Direction (°)": 16
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/readings/pages/{page}": {
+      "get": {
+        "tags": [
+          "Readings - GET"
+        ],
+        "summary": "Get a collection of readings in pages",
+        "description": "",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/readings/{id}": {
+      "get": {
+        "tags": [
+          "Readings - GET"
+        ],
+        "summary": "Get a specific reading by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the reading to get"
+          },
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Readings - DELETE"
+        ],
+        "summary": "Delete a specific reading by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the reading to delete"
+          },
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/readingsmaximumprecipitation/{deviceName}": {
+      "get": {
+        "tags": [
+          "Readings - GET"
+        ],
+        "summary": "Get maximum precipitation by device name over the last 5 months",
+        "description": "",
+        "parameters": [
+          {
+            "name": "deviceName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Device name to search for"
+          },
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/readingsdevicedate/{deviceName}/{date}": {
+      "get": {
+        "tags": [
+          "Readings - GET"
+        ],
+        "summary": "Get the temperature, atmospheric pressure, radiation and precipitation of a specific reading by device name and date",
+        "description": "",
+        "parameters": [
+          {
+            "name": "deviceName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Device name to search for"
+          },
+          {
+            "name": "date",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Date to search for (YYYY-MM-DD)"
+          },
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/readingsmaximumtemperature/{startDate}/{endDate}": {
+      "get": {
+        "tags": [
+          "Readings - GET"
+        ],
+        "summary": "Get the highest temperature by device name and date range",
+        "description": "",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Start date to search for"
+          },
+          {
+            "name": "endDate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "End date to search for"
+          },
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/readings/precipitation": {
+      "patch": {
+        "tags": [
+          "Readings - PATCH"
+        ],
+        "summary": "Update precipitation value of a reading by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Update precipitation value of a reading by ID",
+          "content": {
+            "application/json": {
+              "schema": {
+                "id": "string",
+                "Precipitation mm/h": "number"
+              },
+              "example": {
+                "id": "641ba871d563a9cad71ae888",
+                "Precipitation mm/h": 153.04
+              }
+            }
+          }
+        }
+      }
+    },
+    "/readings-audit": {
+      "patch": {
+        "tags": [
+          "Readings - PATCH"
+        ],
+        "summary": "Remove extra bracket from the Radiation & Wind Speed Fields",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/manyreadings": {
+      "delete": {
+        "tags": [
+          "Readings - DELETE"
+        ],
+        "summary": "Delete multiple readings by their IDs",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Delete multiple readings by their IDs",
+          "content": {
+            "application/json": {
+              "schema": {
+                "ids": [
+                  "string"
+                ],
+                "authenticationKey": "string"
+              },
+              "example": {
+                "authenticationKey": "",
+                "ids": [
+                  "640ea49386348c3384bb4419",
+                  "640ea49386348c3384bb4419"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/register": {
+      "post": {
+        "tags": [
+          "Users - POST"
+        ],
+        "summary": "Register as a new user",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Register as a new user - Please choose a strong password with at least 1 uppercase letter and 1 number",
+          "content": {
+            "application/json": {
+              "schema": {
+                "email": "string",
+                "password": "string",
+                "firstName": "string",
+                "lastName": "string"
+              },
+              "example": {
+                "email": "user@domain.com",
+                "password": "Password123",
+                "firstName": "Test",
+                "lastName": "User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "tags": [
+          "Users - POST"
+        ],
+        "summary": "Login with a specific user",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Login with a specific user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "email": "string",
+                "password": "string"
+              },
+              "example": {
+                "email": "",
+                "password": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/logout": {
+      "post": {
+        "tags": [
+          "Users - POST"
+        ],
+        "summary": "Logout a specific user",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Logout a specific user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "authenticationKey": "string"
+              },
+              "example": {
+                "authenticationKey": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "Users - POST"
+        ],
+        "summary": "Create a specific user",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Create a new user - Please choose a strong password with at least 1 uppercase letter and 1 number",
+          "content": {
+            "application/json": {
+              "schema": {
+                "email": "string",
+                "password": "string",
+                "role": "string",
+                "firstName": "string",
+                "lastName": "string"
+              },
+              "example": {
+                "email": "test@domain.com",
+                "password": "Password123",
+                "role": "student",
+                "firstName": "John",
+                "lastName": "Smith"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Users - GET"
+        ],
+        "summary": "Get a collection of all users",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Users - PATCH"
+        ],
+        "summary": "Update part of a user by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Update part of a user by ID - Please choose a strong password with at least 1 uppercase letter and 1 number",
+          "content": {
+            "application/json": {
+              "schema": {
+                "id": "string",
+                "email": "string",
+                "password": "string",
+                "role": "string",
+                "firstName": "string",
+                "lastName": "string"
+              },
+              "example": {
+                "id": "641f7ee0c00fc85fcbe9caee",
+                "email": "test@domain.com",
+                "password": "abc123",
+                "role": "admin",
+                "firstName": "John",
+                "lastName": "Smith"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users - PUT"
+        ],
+        "summary": "Update an entire user by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Update an entire user by ID - Please choose a strong password with at least 1 uppercase letter and 1 number",
+          "content": {
+            "application/json": {
+              "schema": {
+                "id": "string",
+                "email": "string",
+                "password": "string",
+                "role": "string",
+                "firstName": "string",
+                "lastName": "string"
+              },
+              "example": {
+                "id": "641f7ee0c00fc85fcbe9caee",
+                "email": "test@domain.com",
+                "password": "abc123",
+                "role": "admin",
+                "firstName": "John",
+                "lastName": "Smith"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "tags": [
+          "Users - GET"
+        ],
+        "summary": "Get a specific user by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the user to get"
+          },
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users - DELETE"
+        ],
+        "summary": "Delete a specific user by ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of the user to delete"
+          },
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/oldestusers": {
+      "get": {
+        "tags": [
+          "Users - GET"
+        ],
+        "summary": "Get a list of users in order of the earliest created users",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/manyusers": {
+      "delete": {
+        "tags": [
+          "Users - DELETE"
+        ],
+        "summary": "Delete multiple users by their IDs",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Delete multiple users by their IDs",
+          "content": {
+            "application/json": {
+              "schema": {
+                "ids": [
+                  "string"
+                ],
+                "authenticationKey": "string"
+              },
+              "example": {
+                "authenticationKey": "",
+                "ids": [
+                  "640ea49386348c3384bb4419",
+                  "640ea49386348c3384bb4419"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateuserrolesbycreationdate": {
+      "put": {
+        "tags": [
+          "Users - PUT"
+        ],
+        "summary": "Update role of users by date range",
+        "description": "",
+        "parameters": [
+          {
+            "name": "authentication-key",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "description": "Update role of users by date range",
+          "content": {
+            "application/json": {
+              "schema": {
+                "startDate": "string",
+                "endDate": "string",
+                "role": {
+                  "type": "string",
+                  "enum": [
+                    "student",
+                    "admin"
+                  ]
+                }
+              },
+              "example": {
+                "startDate": "2023-03-10",
+                "endDate": "2023-03-11",
+                "role": "admin"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
